@@ -1,0 +1,99 @@
+<!DOCTYPE html> 
+<html>
+<head>
+  <title>Species Trackr</title>
+  <link rel="stylesheet" href="index.css"/>
+  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css"/>
+  <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+  <style>
+    #map{ width: 500px; height: 500px; }
+  </style>
+</head>
+<body>
+	<h1>Species Trackr</h1>
+	<h3>Species Trackr is an interactive map that details the locations of endangered animals around the world. Learn which animals are near you!</h3>
+
+  <div id="map"></div>
+ 
+  <script>
+
+  // initialize the map
+  var map = L.map('map').setView([42.35, -71.08], 6);
+
+  // load a tile layer
+  L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png',
+    {
+      attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
+	  noWrap: true,
+      maxZoom: 17,
+      minZoom: 1
+    }).addTo(map);
+	map.fitWorld();
+	
+	var marker = L.marker([4.0383, 21.7587]).bindPopup('African Forest Elephant<br> <b>Critically Endangered</b>').addTo(map);
+	var marker = L.marker([45.00, 85.00]).bindPopup('Amur Leopard<br> <b>Critically Endangered</b>').addTo(map);
+	var marker = L.marker([-30.5595, 22.9375]).bindPopup('Black Rhino<br> <b>Critically Endangered</b>').addTo(map);
+	var marker = L.marker([0.9619, 114.5548]).bindPopup('Bornean Orangutan<br> <b>Critically Endangered</b>').addTo(map);
+	var marker = L.marker([7.3697, 12.3547]).bindPopup('Cross River Gorilla<br> <b>Critically Endangered</b>').addTo(map);
+	var marker = L.marker([2.30, 26.35]).bindPopup('Eastern Lowland Gorilla<br> <b>Critically Endangered</b>').addTo(map);
+	var marker = L.marker([9.79568, 118.82813]).bindPopup('Hawksbill Turtle<br> <b>Critically Endangered</b>').addTo(map);
+	var marker = L.marker([-0.7893, 113.9213]).bindPopup('Javan Rhino<br> <b>Critically Endangered</b>').addTo(map);
+	var marker = L.marker([18.6852, 104.8373]).bindPopup('Saola<br> <b>Critically Endangered</b>').addTo(map);
+	var marker = L.marker([-0.5897, 101.3431]).bindPopup('Sumatran Orangutan<br> <b>Critically Endangered</b>').addTo(map);
+	var marker = L.marker([-1.5897, 102.3431]).bindPopup('Sumatran Rhino<br> <b>Critically Endangered</b>').addTo(map);
+	var marker = L.marker([-1.5897, 101.8431]).bindPopup('Sunda Tiger<br> <b>Critically Endangered</b>').addTo(map);
+	var marker = L.marker([28.033197, -111.774902]).bindPopup('Vaquita<br> <b>Critically Endangered</b>').addTo(map);
+	var marker = L.marker([7.3697, 12.3547]).bindPopup('Western Lowland Gorilla<br> <b>Critically Endangered</b>').addTo(map);
+	var marker = L.marker([31.2337, 121.5859]).bindPopup('Yangtze Finless Porpoise<br> <b>Critically Endangered</b>').addTo(map);
+	var marker = L.marker([-6.3690, 34.8888]).bindPopup('African Savanna Elephant<br> <b>Endangered</b>').addTo(map);
+	var marker = L.marker([-24.3571, 19.5687]).bindPopup('African Wild Dog<br> <b>Endangered</b>').addTo(map);
+	var marker = L.marker([25.5736, 93.2473]).bindPopup('Asian Elephant<br> <b>Endangered</b>').addTo(map);
+	var marker = L.marker([43.9695, -99.9018]).bindPopup('Black-footed Ferret<br> <b>Endangered</b>').addTo(map);
+	var marker = L.marker([-45.00, 0.00]).bindPopup('Blue Whale<br> <b>Endangered</b>').addTo(map);
+	var marker = L.marker([-14.5994, -28.6731]).bindPopup('Bluefin Tuna<br> <b>Endangered</b>').addTo(map);
+	var marker = L.marker([-4.0383, 21.7587]).bindPopup('Bonobo<br> <b>Endangered</b>').addTo(map);
+	var marker = L.marker([3.7035, 114.5243]).bindPopup('Bornean Elephant<br> <b>Endangered</b>').addTo(map);
+	var marker = L.marker([-6.3690, 34.8888]).bindPopup('Chimpanzee<br> <b>Endangered</b>').addTo(map);
+	var marker = L.marker([-14.5994, -28.6731]).bindPopup('Fin Whale<br> <b>Endangered</b>').addTo(map);
+	var marker = L.marker([-0.9538, -90.9656]).bindPopup('Galapagos Penguin<br> <b>Endangered</b>').addTo(map);
+	var marker = L.marker([25.3215, 83.1145]).bindPopup('Ganges River Dolphin<br> <b>Endangered</b>').addTo(map);
+	var marker = L.marker([34.5531, 18.0480]).bindPopup("Hector's Dolphin<br> <b>Endangered</b>").addTo(map);
+	var marker = L.marker([9.79568, 118.82813]).bindPopup('Humphead Wrasse<br> <b>Endangered</b>').addTo(map);
+	var marker = L.marker([20.5937, 78.9629]).bindPopup('Indian Elephant<br> <b>Endangered</b>').addTo(map);
+	var marker = L.marker([16.0, 66.5]).bindPopup('Indus River Dolophin<br> <b>Endangered</b>').addTo(map);
+	var marker = L.marker([21.9162, 95.9560]).bindPopup('Irrawaddy Dolphin<br> <b>Endangered</b>').addTo(map);
+	var marker = L.marker([-1.4292, 29.5483]).bindPopup('Mountain Gorilla<br> <b>Endangered</b>').addTo(map);
+	var marker = L.marker([40.96301, -70.39637]).bindPopup('North Atlantic Right Whale<br> <b>Endangered</b>').addTo(map);
+	var marker = L.marker([28.5983, 83.9311]).bindPopup('Red Panda<br> <b>Endangered</b>').addTo(map);
+	var marker = L.marker([36.2048, 138.2529]).bindPopup('Sea Lions<br> <b>Endangered</b>').addTo(map);
+	var marker = L.marker([23.4346, -35.0]).bindPopup('Sea Turtle<br> <b>Endangered</b>').addTo(map);
+	var marker = L.marker([70.4720, 8.4689]).bindPopup('Sei Whale<br> <b>Endangered</b>').addTo(map);
+	var marker = L.marker([7.8731, 80.7718]).bindPopup('Sri Lankan Elephant<br> <b>Endangered</b>').addTo(map);
+	var marker = L.marker([62.0, 110]).bindPopup('Tiger<br> <b>Endangered</b>').addTo(map);
+	var marker = L.marker([3.7355, 3.7435]).bindPopup('Whale Shark<br> <b>Endangered</b>').addTo(map);
+	var marker = L.marker([38.00, -82.00]).bindPopup('Bigeye Tuna<br> <b>Vulnerable</b>').addTo(map);
+	var marker = L.marker([-7.0446, -70.5929]).bindPopup('Black Spider Monkey<br> <b>Vulnerable</b>').addTo(map);
+	var marker = L.marker([-25.7834, 113.2988]).bindPopup('Dugong<br> <b>Vulnerable</b>').addTo(map);
+	var marker = L.marker([29.439325, 106.887703]).bindPopup('Giant Panda<br> <b>Vulnerable</b>').addTo(map);
+	var marker = L.marker([-0.9538, -90.9656]).bindPopup('Giant Tortoise<br> <b>Vulnerable</b>').addTo(map);
+	var marker = L.marker([43.5804, -126.2313]).bindPopup('Great White Shark<br> <b>Vulnerable</b>').addTo(map);
+	var marker = L.marker([28.00, 84.00]).bindPopup('Greater One-Horned Rhino<br> <b>Vulnerable</b>').addTo(map);
+	var marker = L.marker([23.4821, 18.4272]).bindPopup('Hippotamus<br> <b>Vulnerable</b>').addTo(map);
+	var marker = L.marker([21.4691, -78.6569]).bindPopup('Loggerhead Turtle<br> <b>Vulnerable</b>').addTo(map);
+	var marker = L.marker([-0.9538, -90.9656]).bindPopup('Marine Iguana<br> <b>Vulnerable</b>').addTo(map);
+	var marker = L.marker([21.38, -28.5402]).bindPopup('Leatherback Turtle<br> <b>Vulnerable</b>').addTo(map);
+	var marker = L.marker([18.52385, 67.25446]).bindPopup('Olive Ridley Turtle<br> <b>Vulnerable</b>').addTo(map);
+	var marker = L.marker([76.2506, -100.1140]).bindPopup('Polar Bear<br> <b>Vulnerable</b>').addTo(map);
+	var marker = L.marker([41.2044, 74.7661]).bindPopup('Snow Leopard<br> <b>Vulnerable</b>').addTo(map);
+	var marker = L.marker([-66.57498, 38.26127]).bindPopup('Southern Rockhopper Penguin<br> <b>Vulnerable</b>').addTo(map);
+	var marker = L.marker([-8.7832, 124.5085]).bindPopup('Albacore Tuna<br> <b>Near Threatened</b>').addTo(map);
+	var marker = L.marker([65.2482, -60.4621]).bindPopup('Beluga<br> <b>Near Threatened</b>').addTo(map);
+	var marker = L.marker([52.9399, -106.4509]).bindPopup('Greater Sage-Grouse<br> <b>Near Threatened</b>').addTo(map);
+	var marker = L.marker([-2.163106, -55.126648]).bindPopup('Jaguar<br> <b>Near Threatened</b>').addTo(map);
+	var marker = L.marker([37.00, 97.00]).bindPopup('Mountain Plover<br> <b>Near Threatened</b>').addTo(map);
+	var marker = L.marker([44.4280, -110.5885]).bindPopup('Plains Bison<br> <b>Near Threatened</b>').addTo(map);
+	var marker = L.marker([0.0255, 36.9572]).bindPopup('White Rhino<br> <b>Near Threatened</b>').addTo(map);
+	var marker = L.marker([-0.7893, 113.9213]).bindPopup('Yellowfin Tuna<br> <b>Near Threatened</b>').addTo(map);
+  </script>
+</body>
+</html>
