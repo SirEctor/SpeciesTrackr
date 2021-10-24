@@ -1,20 +1,32 @@
 <!DOCTYPE html> 
 <html>
 <head>
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+  <meta content="utf-8" http-equiv="encoding">
+
   <title>Species Trackr</title>
   <link rel="stylesheet" href="index.css"/>
   <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css"/>
   <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
   <style>
-    #map{ width: 500px; height: 500px; }
+      #map {
+    	width: 500px; 
+		height: 500px;
+      }
   </style>
 </head>
 <body>
-	<h1>Species Trackr</h1>
-	<h3>Species Trackr is an interactive map that details the locations of endangered animals around the world. Learn which animals are near you!</h3>
+	
+  <div>
+  <img class = banner src="stbanner.svg">
+  </div>
 
+   <h3>Species Trackr is an interactive map that details the locations of endangered animals around the world. Learn which animals are near you!</h3>
+  
+  <div id="map-container">
   <div id="map"></div>
- 
+  </div>
+  
   <script>
 
   // initialize the map
@@ -94,6 +106,8 @@
 	var marker = L.marker([44.4280, -110.5885]).bindPopup('Plains Bison<br> <b>Near Threatened</b>').addTo(map);
 	var marker = L.marker([0.0255, 36.9572]).bindPopup('White Rhino<br> <b>Near Threatened</b>').addTo(map);
 	var marker = L.marker([-0.7893, 113.9213]).bindPopup('Yellowfin Tuna<br> <b>Near Threatened</b>').addTo(map);
+	
   </script>
+  
 </body>
 </html>
