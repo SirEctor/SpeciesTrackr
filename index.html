@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="index.css"/>
   <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css"/>
   <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+  
   <style>
       #map {
     	width: 500px; 
@@ -16,12 +17,91 @@
   </style>
 </head>
 <body>
-	
-  <div>
-  <img class = banner src="stbanner.svg">
-  </div>
+  
 
-   <h3>Species Trackr is an interactive map that details the locations of endangered animals around the world. Learn which animals are near you!</h3>
+	<div class="bg"></div>
+	<div class="bg bg2"></div>
+	<div class="bg bg3"></div>
+ 
+  <div class="content">
+  <img class = "banner" src="stbanner.svg">
+  
+
+   <h3>Species Trackr is an interactive map that details the locations of endangered animals around the world. Learn which animals are near you! Use the search bar to search by endangerment level or animal names based on the animals listed in the database.</h3>
+  
+  <div id = "search">
+  <input id="searchbar" onkeyup="searchEco()" type="text"
+        name="search" placeholder="Search...">
+  <ol id='list'>
+        <li class="data">African Forest Elephant - <b>Critically Endangered</b></li>
+        <li class="data">Amur Leopard - <b>Critically Endangered</b></li>
+        <li class="data">Black Rhino - <b>Critically Endangered</b></li>
+        <li class="data">Bornean Orangutan - <b>Critically Endangered</b></li>
+        <li class="data">Cross River Gorilla - <b>Critically Endangered</b></li>
+        <li class="data">Eastern Lowland Gorilla - <b>Critically Endangered</b></li>
+        <li class="data">Hawksbill Turtle - <b>Critically Endangered</b></li>
+        <li class="data">Javan Rhino - <b>Critically Endangered</b></li>
+        <li class="data">Saola - <b>Critically Endangered</b></li>
+        <li class="data">Sumatran Elephant - <b>Critically Endangered</b></li>
+        <li class="data">Sumatran Rhino - <b>Critically Endangered</b></li>
+        <li class="data">Sunda Tiger - <b>Critically Endangered</b></li>
+        <li class="data">Vaquita - <b>Critically Endangered</b></li>
+        <li class="data">Western Lowland Gorilla - <b>Critically Endangered</b></li>
+        <li class="data">Yangtze Finless Porpoise - <b>Critically Endangered</b></li>
+        <li class="data">African Savanna Elephant - <b>Endangered</b></li>
+		<li class="data">African Wild Dog - <b>Endangered</b></li>
+		<li class="data">Asian Elephant - <b>Endangered</b></li>
+		<li class="data">Black-footed Ferret - <b>Endangered</b></li>
+		<li class="data">Blue Whale - <b>Endangered</b></li>
+		<li class="data">Bluefin Tuna - <b>Endangered</b></li>
+		<li class="data">Bonobo - <b>Endangered</b></li>
+		<li class="data">Bornean Elephant - <b>Endangered</b></li>
+		<li class="data">Chimpanzee - <b>Endangered</b></li>
+		<li class="data">Fin Whale - <b>Endangered</b></li>
+		<li class="data">Galapagos Penguin - <b>Endangered</b></li>
+		<li class="data">Ganges River Dolphin - <b>Endangered</b></li>
+		<li class="data">Green Turtle - <b>Endangered</b></li>
+		<li class="data">Hector's Dolphin - <b>Endangered</b></li>
+		<li class="data">Humphead Wrasse - <b>Endangered</b></li>
+		<li class="data">Indian Elephant - <b>Endangered</b></li>
+		<li class="data">Indus River Dolphin - <b>Endangered</b></li>
+		<li class="data">Irrawaddy Dolphin - <b>Endangered</b></li>
+		<li class="data">Hector's Dolphin - <b>Endangered</b></li>
+		<li class="data">Mountain Gorilla - <b>Endangered</b></li>
+		<li class="data">North Atlantic Right Whale - <b>Endangered</b></li>
+		<li class="data">Red Panda - <b>Endangered</b></li>
+		<li class="data">Sea Lions - <b>Endangered</b></li>
+		<li class="data">Sea Turtle - <b>Endangered</b></li>
+		<li class="data">Sei Whale - <b>Endangered</b></li>
+		<li class="data">Sri Lankan Elephant - <b>Endangered</b></li>
+		<li class="data">Tiger - <b>Endangered</b></li>
+		<li class="data">Whale Shark - <b>Endangered</b></li>
+		<li class="data">Bigeye Tuna - <b>Vulnerable</b></li>
+		<li class="data">Black Spider Monkey - <b>Vulnerable</b></li>
+		<li class="data">Dugong - <b>Vulnerable</b></li>
+		<li class="data">Giant Panda - <b>Vulnerable</b></li>
+		<li class="data">Giant Tortoise - <b>Vulnerable</b></li>
+		<li class="data">Great White Shark - <b>Vulnerable</b></li>
+		<li class="data">Greater One-Horned Rhino - <b>Vulnerable</b></li>
+		<li class="data">Hippopotamus - <b>Vulnerable</b></li>
+		<li class="data">Leatherback Turtle - <b>Vulnerable</b></li>
+		<li class="data">Loggerhead Turtle - <b>Vulnerable</b></li>
+		<li class="data">Marine Iguana - <b>Vulnerable</b></li>
+		<li class="data">Olive Ridley Turtle - <b>Vulnerable</b></li>
+		<li class="data">Polar Bear - <b>Vulnerable</b></li>
+		<li class="data">Snow Leopard - <b>Vulnerable</b></li>
+		<li class="data">Southern Rockhopper Penguin - <b>Vulnerable</b></li>
+		<li class="data">Albacore Tuna - <b>Near Threatened</b></li>
+		<li class="data">Beluga - <b>Near Threatened</b></li>
+		<li class="data">Greater Sage-Grouse - <b>Near Threatened</b></li>
+		<li class="data">Jaguar - <b>Near Threatened</b></li>
+		<li class="data">Mountain Plover - <b>Near Threatened</b></li>
+		<li class="data">Plains Bison - <b>Near Threatened</b></li>
+		<li class="data">White Rhino - <b>Near Threatened</b></li>
+		<li class="data">Yellowfin Tuna - <b>Near Threatened</b></li>
+		
+    </ol>
+	
   
   <div id="map-container">
   <div id="map"></div>
@@ -30,8 +110,10 @@
   <script>
 
   // initialize the map
+  
   var map = L.map('map').setView([42.35, -71.08], 6);
-
+  
+  
   // load a tile layer
   L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png',
     {
@@ -72,7 +154,7 @@
 	var marker = L.marker([34.5531, 18.0480]).bindPopup("Hector's Dolphin<br> <b>Endangered</b>").addTo(map);
 	var marker = L.marker([9.79568, 118.82813]).bindPopup('Humphead Wrasse<br> <b>Endangered</b>').addTo(map);
 	var marker = L.marker([20.5937, 78.9629]).bindPopup('Indian Elephant<br> <b>Endangered</b>').addTo(map);
-	var marker = L.marker([16.0, 66.5]).bindPopup('Indus River Dolophin<br> <b>Endangered</b>').addTo(map);
+	var marker = L.marker([16.0, 66.5]).bindPopup('Indus River Dolphin<br> <b>Endangered</b>').addTo(map);
 	var marker = L.marker([21.9162, 95.9560]).bindPopup('Irrawaddy Dolphin<br> <b>Endangered</b>').addTo(map);
 	var marker = L.marker([-1.4292, 29.5483]).bindPopup('Mountain Gorilla<br> <b>Endangered</b>').addTo(map);
 	var marker = L.marker([40.96301, -70.39637]).bindPopup('North Atlantic Right Whale<br> <b>Endangered</b>').addTo(map);
@@ -90,7 +172,7 @@
 	var marker = L.marker([-0.9538, -90.9656]).bindPopup('Giant Tortoise<br> <b>Vulnerable</b>').addTo(map);
 	var marker = L.marker([43.5804, -126.2313]).bindPopup('Great White Shark<br> <b>Vulnerable</b>').addTo(map);
 	var marker = L.marker([28.00, 84.00]).bindPopup('Greater One-Horned Rhino<br> <b>Vulnerable</b>').addTo(map);
-	var marker = L.marker([23.4821, 18.4272]).bindPopup('Hippotamus<br> <b>Vulnerable</b>').addTo(map);
+	var marker = L.marker([23.4821, 18.4272]).bindPopup('Hippopotamus<br> <b>Vulnerable</b>').addTo(map);
 	var marker = L.marker([21.4691, -78.6569]).bindPopup('Loggerhead Turtle<br> <b>Vulnerable</b>').addTo(map);
 	var marker = L.marker([-0.9538, -90.9656]).bindPopup('Marine Iguana<br> <b>Vulnerable</b>').addTo(map);
 	var marker = L.marker([21.38, -28.5402]).bindPopup('Leatherback Turtle<br> <b>Vulnerable</b>').addTo(map);
@@ -107,7 +189,28 @@
 	var marker = L.marker([0.0255, 36.9572]).bindPopup('White Rhino<br> <b>Near Threatened</b>').addTo(map);
 	var marker = L.marker([-0.7893, 113.9213]).bindPopup('Yellowfin Tuna<br> <b>Near Threatened</b>').addTo(map);
 	
+	
   </script>
   
+  
+	<script>
+		function searchEco() {
+    let input = document.getElementById('searchbar').value
+    input=input.toLowerCase();
+    let x = document.getElementsByClassName('data');
+      
+    for (i = 0; i < x.length; i++) { 
+        if (x[i].innerHTML.toLowerCase().includes(input) && input != "") {
+			console.log(input);
+            x[i].style.display="list-item";
+        }
+        else {
+            x[i].style.display="none";                 
+        }
+    }
+   }
+	</script>
+    </div>
+  </div>
 </body>
 </html>
