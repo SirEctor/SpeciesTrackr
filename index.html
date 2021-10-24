@@ -11,9 +11,110 @@
   
   <style>
       #map {
-    	width: 500px; 
-		height: 500px;
+    	width: 600px; 
+		height: 400px;
+		position: relative;
+		align: center;
       }
+	  .banner {
+		  display: block;
+		  margin-top: 10%;
+		  margin-left: auto;
+		  margin-right: auto;
+		  width: 25%;
+		}
+
+		#searchbar{
+			 border-radius: 10px;
+		}
+		 
+		   input[type=text] {
+			  width: 30%;
+			  -webkit-transition: width 0.15s ease-in-out;
+			  transition: width 0.15s ease-in-out;
+		   }
+		 
+		   /* When the input field gets focus,
+				change its width to 100% */
+		   input[type=text]:focus {
+			 width: 70%;
+		   }
+		   
+		   #list{
+			   max-height: 4.5em; /* 1.5 x 3 */
+			   overflow-y: auto;
+		   }
+		   
+		   .data{
+			   display: none;
+		   }
+		   
+		   html {
+		  height:100%;
+		}
+
+		body {
+		  margin:0;
+		}
+
+		.bg {
+		  animation:slide 3s ease-in-out infinite alternate-reverse;
+		  background-image: linear-gradient(-45deg, #6c3 50%, #09f 50%);
+		  bottom:0;
+		  left:-50%;
+		  opacity:.5;
+		  position:fixed;
+		  right:-50%;
+		  top:0;
+		  z-index:-1;
+		}
+
+		.bg2 {
+		  animation-direction:alternate;
+		  animation-duration:4s;
+		}
+
+		.bg3 {
+		  animation-duration:5s;
+		}
+
+		.content {
+		  background-color:rgba(245,245,255,.8);
+		  border-radius:.25em;
+		  box-shadow:0 0 .25em rgba(0,0,0,.25);
+		  box-sizing:border-box;
+		  left:50%;
+		  padding:10vmin;
+		  position:fixed;
+		  text-align:center;
+		  top:50%;
+		  transform:translate(-50%, -50%);
+		}
+
+		h1 {
+		  font-family:monospace;
+		}
+
+		@keyframes slide {
+		  0% {
+			transform:translateX(-25%);
+		  }
+		  100% {
+			transform:translateX(25%);
+		  }
+		}
+
+
+		html{
+			height: 100%;
+			margin: auto;
+			width: 960px;
+		}
+		
+		.graytext{
+			color: gray;
+		}
+
   </style>
 </head>
 <body>
@@ -103,7 +204,8 @@
     </ol>
 	
   
-  <div id="map-container">
+  <div id="map-container">  
+	<p> For further information about endangered animals all around the world, please consider visiting the <a href="https://worldwildlife.org">World Wildlife Fund page.</a></p>
   <div id="map"></div>
   </div>
   
@@ -124,70 +226,71 @@
     }).addTo(map);
 	map.fitWorld();
 	
-	var marker = L.marker([4.0383, 21.7587]).bindPopup('African Forest Elephant<br> <b>Critically Endangered</b>').addTo(map);
-	var marker = L.marker([45.00, 85.00]).bindPopup('Amur Leopard<br> <b>Critically Endangered</b>').addTo(map);
-	var marker = L.marker([-30.5595, 22.9375]).bindPopup('Black Rhino<br> <b>Critically Endangered</b>').addTo(map);
-	var marker = L.marker([0.9619, 114.5548]).bindPopup('Bornean Orangutan<br> <b>Critically Endangered</b>').addTo(map);
-	var marker = L.marker([7.3697, 12.3547]).bindPopup('Cross River Gorilla<br> <b>Critically Endangered</b>').addTo(map);
-	var marker = L.marker([2.30, 26.35]).bindPopup('Eastern Lowland Gorilla<br> <b>Critically Endangered</b>').addTo(map);
-	var marker = L.marker([9.79568, 118.82813]).bindPopup('Hawksbill Turtle<br> <b>Critically Endangered</b>').addTo(map);
-	var marker = L.marker([-0.7893, 113.9213]).bindPopup('Javan Rhino<br> <b>Critically Endangered</b>').addTo(map);
-	var marker = L.marker([18.6852, 104.8373]).bindPopup('Saola<br> <b>Critically Endangered</b>').addTo(map);
-	var marker = L.marker([-0.5897, 101.3431]).bindPopup('Sumatran Orangutan<br> <b>Critically Endangered</b>').addTo(map);
-	var marker = L.marker([-1.5897, 102.3431]).bindPopup('Sumatran Rhino<br> <b>Critically Endangered</b>').addTo(map);
-	var marker = L.marker([-1.5897, 101.8431]).bindPopup('Sunda Tiger<br> <b>Critically Endangered</b>').addTo(map);
-	var marker = L.marker([28.033197, -111.774902]).bindPopup('Vaquita<br> <b>Critically Endangered</b>').addTo(map);
-	var marker = L.marker([7.3697, 12.3547]).bindPopup('Western Lowland Gorilla<br> <b>Critically Endangered</b>').addTo(map);
-	var marker = L.marker([31.2337, 121.5859]).bindPopup('Yangtze Finless Porpoise<br> <b>Critically Endangered</b>').addTo(map);
-	var marker = L.marker([-6.3690, 34.8888]).bindPopup('African Savanna Elephant<br> <b>Endangered</b>').addTo(map);
-	var marker = L.marker([-24.3571, 19.5687]).bindPopup('African Wild Dog<br> <b>Endangered</b>').addTo(map);
-	var marker = L.marker([25.5736, 93.2473]).bindPopup('Asian Elephant<br> <b>Endangered</b>').addTo(map);
-	var marker = L.marker([43.9695, -99.9018]).bindPopup('Black-footed Ferret<br> <b>Endangered</b>').addTo(map);
-	var marker = L.marker([-45.00, 0.00]).bindPopup('Blue Whale<br> <b>Endangered</b>').addTo(map);
-	var marker = L.marker([-14.5994, -28.6731]).bindPopup('Bluefin Tuna<br> <b>Endangered</b>').addTo(map);
-	var marker = L.marker([-4.0383, 21.7587]).bindPopup('Bonobo<br> <b>Endangered</b>').addTo(map);
-	var marker = L.marker([3.7035, 114.5243]).bindPopup('Bornean Elephant<br> <b>Endangered</b>').addTo(map);
-	var marker = L.marker([-6.3690, 34.8888]).bindPopup('Chimpanzee<br> <b>Endangered</b>').addTo(map);
-	var marker = L.marker([-14.5994, -28.6731]).bindPopup('Fin Whale<br> <b>Endangered</b>').addTo(map);
-	var marker = L.marker([-0.9538, -90.9656]).bindPopup('Galapagos Penguin<br> <b>Endangered</b>').addTo(map);
-	var marker = L.marker([25.3215, 83.1145]).bindPopup('Ganges River Dolphin<br> <b>Endangered</b>').addTo(map);
-	var marker = L.marker([34.5531, 18.0480]).bindPopup("Hector's Dolphin<br> <b>Endangered</b>").addTo(map);
-	var marker = L.marker([9.79568, 118.82813]).bindPopup('Humphead Wrasse<br> <b>Endangered</b>').addTo(map);
-	var marker = L.marker([20.5937, 78.9629]).bindPopup('Indian Elephant<br> <b>Endangered</b>').addTo(map);
-	var marker = L.marker([16.0, 66.5]).bindPopup('Indus River Dolphin<br> <b>Endangered</b>').addTo(map);
-	var marker = L.marker([21.9162, 95.9560]).bindPopup('Irrawaddy Dolphin<br> <b>Endangered</b>').addTo(map);
-	var marker = L.marker([-1.4292, 29.5483]).bindPopup('Mountain Gorilla<br> <b>Endangered</b>').addTo(map);
-	var marker = L.marker([40.96301, -70.39637]).bindPopup('North Atlantic Right Whale<br> <b>Endangered</b>').addTo(map);
-	var marker = L.marker([28.5983, 83.9311]).bindPopup('Red Panda<br> <b>Endangered</b>').addTo(map);
-	var marker = L.marker([36.2048, 138.2529]).bindPopup('Sea Lions<br> <b>Endangered</b>').addTo(map);
-	var marker = L.marker([23.4346, -35.0]).bindPopup('Sea Turtle<br> <b>Endangered</b>').addTo(map);
-	var marker = L.marker([70.4720, 8.4689]).bindPopup('Sei Whale<br> <b>Endangered</b>').addTo(map);
-	var marker = L.marker([7.8731, 80.7718]).bindPopup('Sri Lankan Elephant<br> <b>Endangered</b>').addTo(map);
-	var marker = L.marker([62.0, 110]).bindPopup('Tiger<br> <b>Endangered</b>').addTo(map);
-	var marker = L.marker([3.7355, 3.7435]).bindPopup('Whale Shark<br> <b>Endangered</b>').addTo(map);
-	var marker = L.marker([38.00, -82.00]).bindPopup('Bigeye Tuna<br> <b>Vulnerable</b>').addTo(map);
-	var marker = L.marker([-7.0446, -70.5929]).bindPopup('Black Spider Monkey<br> <b>Vulnerable</b>').addTo(map);
-	var marker = L.marker([-25.7834, 113.2988]).bindPopup('Dugong<br> <b>Vulnerable</b>').addTo(map);
-	var marker = L.marker([29.439325, 106.887703]).bindPopup('Giant Panda<br> <b>Vulnerable</b>').addTo(map);
-	var marker = L.marker([-0.9538, -90.9656]).bindPopup('Giant Tortoise<br> <b>Vulnerable</b>').addTo(map);
-	var marker = L.marker([43.5804, -126.2313]).bindPopup('Great White Shark<br> <b>Vulnerable</b>').addTo(map);
-	var marker = L.marker([28.00, 84.00]).bindPopup('Greater One-Horned Rhino<br> <b>Vulnerable</b>').addTo(map);
-	var marker = L.marker([23.4821, 18.4272]).bindPopup('Hippopotamus<br> <b>Vulnerable</b>').addTo(map);
-	var marker = L.marker([21.4691, -78.6569]).bindPopup('Loggerhead Turtle<br> <b>Vulnerable</b>').addTo(map);
-	var marker = L.marker([-0.9538, -90.9656]).bindPopup('Marine Iguana<br> <b>Vulnerable</b>').addTo(map);
-	var marker = L.marker([21.38, -28.5402]).bindPopup('Leatherback Turtle<br> <b>Vulnerable</b>').addTo(map);
-	var marker = L.marker([18.52385, 67.25446]).bindPopup('Olive Ridley Turtle<br> <b>Vulnerable</b>').addTo(map);
-	var marker = L.marker([76.2506, -100.1140]).bindPopup('Polar Bear<br> <b>Vulnerable</b>').addTo(map);
-	var marker = L.marker([41.2044, 74.7661]).bindPopup('Snow Leopard<br> <b>Vulnerable</b>').addTo(map);
-	var marker = L.marker([-66.57498, 38.26127]).bindPopup('Southern Rockhopper Penguin<br> <b>Vulnerable</b>').addTo(map);
-	var marker = L.marker([-8.7832, 124.5085]).bindPopup('Albacore Tuna<br> <b>Near Threatened</b>').addTo(map);
-	var marker = L.marker([65.2482, -60.4621]).bindPopup('Beluga<br> <b>Near Threatened</b>').addTo(map);
-	var marker = L.marker([52.9399, -106.4509]).bindPopup('Greater Sage-Grouse<br> <b>Near Threatened</b>').addTo(map);
-	var marker = L.marker([-2.163106, -55.126648]).bindPopup('Jaguar<br> <b>Near Threatened</b>').addTo(map);
-	var marker = L.marker([37.00, 97.00]).bindPopup('Mountain Plover<br> <b>Near Threatened</b>').addTo(map);
-	var marker = L.marker([44.4280, -110.5885]).bindPopup('Plains Bison<br> <b>Near Threatened</b>').addTo(map);
-	var marker = L.marker([0.0255, 36.9572]).bindPopup('White Rhino<br> <b>Near Threatened</b>').addTo(map);
-	var marker = L.marker([-0.7893, 113.9213]).bindPopup('Yellowfin Tuna<br> <b>Near Threatened</b>').addTo(map);
+	var marker = L.marker([4.0383, 21.7587]).bindPopup('African Forest Elephant<br> <b>Critically Endangered</b><p class="graytext">African forest elephants live in family groups of up to 20 individuals and forage on leaves, grasses, seeds, fruit, and tree bark. Since the diet of forest elephants is dominated by fruit, they play a crucial role in dispersing many tree species, particularly the seeds of large trees which tend to have high carbon content.</p>').addTo(map);
+	var marker = L.marker([45.00, 85.00]).bindPopup('Amur Leopard<br> <b>Critically Endangered</b> <p class="graytext">The Amur leopard is solitary. Nimble-footed and strong, it carries and hides unfinished kills so that they are not taken by other predators. It has been reported that some males stay with females after mating, and may even help with rearing the young.</p>').addTo(map);
+	var marker = L.marker([-30.5595, 22.9375]).bindPopup('Black Rhino<br> <b>Critically Endangered</b><p class="graytext">Black rhinos are the smaller of the two African rhino species. The most notable difference between white and black rhinos are their hooked upper lip. This distinguishes them from the white rhino, which has a square lip.</p>').addTo(map);
+	var marker = L.marker([0.9619, 114.5548]).bindPopup('Bornean Orangutan<br> <b>Critically Endangered </b> <p class="graytext">The Bornean orangutan differs in appearance from the Sumatran orangutan, with a broader face and shorter beard and also slightly darker in color. </p>').addTo(map);
+	var marker = L.marker([7.3697, 12.3547]).bindPopup('Cross River Gorilla<br> <b>Critically Endangered</b><p class="graytext">This subspecies of the western gorilla is very similar in appearance to the more numerous western lowland gorilla, but subtle differences can be found in the skull and tooth dimensions.</p>').addTo(map);
+	var marker = L.marker([2.30, 26.35]).bindPopup('Eastern Lowland Gorilla<br> <b>Critically Endangered</b><p class="graytext">The eastern lowland gorilla—also known as Grauer’s gorilla—is the largest of the four gorilla subspecies. It is distinguished from other gorillas by its stocky body, large hands and short muzzle.</p>').addTo(map);
+	var marker = L.marker([9.79568, 118.82813]).bindPopup("Hawksbill Turtle<br> <b>Critically Endangered</b><p class='graytext'>Hawksbills are found mainly throughout the world's tropical oceans, predominantly in coral reefs. They feed mainly on sponges by using their narrow pointed beaks to extract them from crevices on the reef</p>").addTo(map);
+	var marker = L.marker([-0.7893, 113.9213]).bindPopup('Javan Rhino<br> <b>Critically Endangered</b><p class="graytext">Javan rhinos are the most threatened of the five rhino species, with only around 60 individuals that live only in Ujung Kulon National Park in Java, Indonesia. Javan rhinos once lived throughout northeast India and Southeast Asia.</p>').addTo(map);
+	var marker = L.marker([18.6852, 104.8373]).bindPopup('Saola<br> <b>Critically Endangered</b><p class="graytext">Saola (pronounced: sow-la) are recognized by two parallel horns with sharp ends, which can reach 20 inches in length and are found on both males and females. p>').addTo(map);
+	var marker = L.marker([-0.7399, 100.8000]).bindPopup("Sumatran Elephant<br><b>Critically Endangered</b><p class='graytext'>Sumatran elephants feed on a variety of plants and deposit seeds wherever they go, contributing to a healthy forest ecosystem. They also share their lush forest habitat with several other endangered species, such as the Sumatran rhino, tiger, and orangutan, and countless other species </p>").addTo(map);
+	var marker = L.marker([-0.5897, 101.3431]).bindPopup("Sumatran Orangutan<br> <b>Critically Endangered</b><p class='graytext'>Historically, the Sumatran orangutan was distributed over the entire island of Sumatra and further south into Java. The species' range is now restricted to the north of the island with a majority in the provinces of North Sumatra and Aceh.</p>").addTo(map);
+	var marker = L.marker([-1.5897, 102.3431]).bindPopup('Sumatran Rhino<br> <b>Critically Endangered</b><p class="graytext">Sumatran rhinos are the smallest of the living rhinoceroses and the only Asian rhino with two horns. They are covered with long hair and are more closely related to the extinct woolly rhinos than any of the other rhino species alive today.</p>').addTo(map);
+	var marker = L.marker([-1.5897, 101.8431]).bindPopup('Sunda Tiger<br> <b>Critically Endangered</b><p class="graytext">Sunda tigers are distinguished by heavy black stripes on their orange coats. The last of the Sunda island tigers—estimated to be fewer than 400 today—are holding on for survival in the remaining patches of forest on the island of Sumatra.</p>').addTo(map);
+	var marker = L.marker([28.033197, -111.774902]).bindPopup("Vaquita<br> <b>Critically Endangered</b><p class='graytext'>Vaquita, the world's rarest marine mammal, is on the edge of extinction. The plight of cetaceans—whales, dolphins, and porpoises—as a whole is exemplified by the rapid decline of the vaquita in Mexico, with about 10 individuals remaining.</p>").addTo(map);
+	var marker = L.marker([7.3697, 12.3547]).bindPopup('Western Lowland Gorilla<br> <b>Critically Endangered</b><p class="graytext">The western lowland gorilla is the most numerous and widespread of all gorilla subspecies. Populations can be found in Cameroon, the Central African Republic, the Democratic Republic of Congo and Equatorial Guinea </p>').addTo(map);
+	var marker = L.marker([31.2337, 121.5859]).bindPopup('Yangtze Finless Porpoise<br> <b>Critically Endangered</b<p class="graytext">The Yangtze River, the longest river in Asia, used to be one of the only two rivers in the world that was home to two different species of dolphin—the Yangtze finless porpoise and the Baiji dolphin.</p>>').addTo(map);
+	var marker = L.marker([-6.3690, 34.8888]).bindPopup('African Savanna Elephant<br> <b>Endangered</b><p class="graytext">African savanna elephants are the largest species of elephant and the biggest terrestrial animal on Earth. They are easily distinguished by their very large ears—which allow them to radiate excess heat—and front legs which are noticeably longer than the hind legs.</p>').addTo(map);
+	var marker = L.marker([-24.3571, 19.5687]).bindPopup('African Wild Dog<br> <b>Endangered</b><p class="graytext">Wild dogs are social and gather in packs of around ten individuals, but some packs number more than 40. They are opportunistic predators that hunt medium-sized ruminants, such as gazelles.</p>').addTo(map);
+	var marker = L.marker([25.5736, 93.2473]).bindPopup('Asian Elephant<br> <b>Endangered</b><p class="graytext">Wild dogs are social and gather in packs of around ten individuals, but some packs number more than 40. They are opportunistic predators that hunt medium-sized ruminants, such as gazelles.</p>').addTo(map);
+	var marker = L.marker([43.9695, -99.9018]).bindPopup('Black-footed Ferret<br> <b>Endangered</b><p class="graytext">Once thought to be globally extinct, black-footed ferrets are making a comeback. For the last thirty years, concerted efforts from many state and federal agencies, zoos, Native American tribes, conservation organizations and private landowners have given black-footed ferrets a second chance for survival.</p>').addTo(map);
+	var marker = L.marker([-45.00, 0.00]).bindPopup('Blue Whale<br> <b>Endangered</b><p class="graytext">The blue whale is the largest animal on the planet, weighing as much as 200 tons (approximately 33 elephants). The blue whale has a heart the size of a Volkswagen Beetle.</p>').addTo(map);
+	var marker = L.marker([-14.5994, -28.6731]).bindPopup('Bluefin Tuna<br> <b>Endangered</b><p class="graytext">Bluefin are the largest tunas and can live up to 40 years. They migrate across all oceans and can dive deeper than 3,000 feet. Bluefin tuna are made for speed: built like torpedoes, have retractable fins and their eyes are set flush to their body. </p>').addTo(map);
+	var marker = L.marker([-4.0383, 21.7587]).bindPopup('Bonobo<br> <b>Endangered</b><p class="graytext">Bonobos and chimpanzees look very similar and both share 98.7% of their DNA with humans—making the two species our closest living relatives. Bonobos are usually a bit smaller, leaner and darker than chimpanzees.</p>').addTo(map);
+	var marker = L.marker([3.7035, 114.5243]).bindPopup('Bornean Elephant<br> <b>Endangered</b><p class="graytext">Bonobos and chimpanzees look very similar and both share 98.7% of their DNA with humans—making the two species our closest living relatives. Bonobos are usually a bit smaller, leaner and darker than chimpanzees.</p>').addTo(map);
+	var marker = L.marker([-6.3690, 34.8888]).bindPopup('Chimpanzee<br> <b>Endangered</b><p class="graytext">Like us, chimps are highly social animals, care for their offspring for years and can live to be over 50. In fact, chimpanzees are our closest cousins; we share about 98% of our genes.</p>').addTo(map);
+	var marker = L.marker([-14.5994, -28.6731]).bindPopup('Fin Whale<br> <b>Endangered</b><p class="graytext">Some scientists have speculated that fin whales circle schools of fish with the white side facing the prey and frightening them into denser schools that are easier for the whale to catch.</p>').addTo(map);
+	var marker = L.marker([-0.9538, -90.9656]).bindPopup('Galapagos Penguin<br> <b>Endangered</b><p class="graytext">This is the only penguin species found north of the equator and in the Galápagos. </p>').addTo(map);
+	var marker = L.marker([25.3215, 83.1145]).bindPopup('Ganges River Dolphin<br> <b>Endangered</b><p class="graytext">The Ganges river dolphin was officially discovered in 1801. Ganges river dolphins once lived in the Ganges-Brahmaputra-Meghna and Karnaphuli-Sangu river systems of Nepal, India, and Bangladesh.</p>').addTo(map);
+	var marker = L.marker([34.5531, 18.0480]).bindPopup("Hector's Dolphin<br> <b>Endangered</b><p class='graytext'>Hector’s dolphins are the smallest and rarest marine dolphins in the world. They have distinct black facial markings, short stocky bodies and a dorsal fin shaped like a Mickey Mouse ear. There is a subspecies of Hector’s dolphin known as Maui’s dolphin that is critically endangered</p>").addTo(map);
+	var marker = L.marker([9.79568, 118.82813]).bindPopup('Humphead Wrasse<br> <b>Endangered</b><p class="graytext">The humphead wrasse is an enormous coral reef fish—growing over six feet long—with a prominent bulge on its forehead. Some of them live to be over 30 years old. </p>').addTo(map);
+	var marker = L.marker([20.5937, 78.9629]).bindPopup('Indian Elephant<br> <b>Endangered</b><p class="graytext">Indian elephants may spend up to 19 hours a day feeding and they can produce about 220 pounds of dung per day while wandering over an area that can cover up to 125 square miles.</p>').addTo(map);
+	var marker = L.marker([16.0, 66.5]).bindPopup('Indus River Dolphin<br> <b>Endangered</b><p class="graytext">Indus river dolphins are believed to have originated in the ancient Tethys Sea. When the sea dried up approximately 50 million years ago, the dolphins were forced to adapt to its only remaining habitat—rivers. </p>').addTo(map);
+	var marker = L.marker([21.9162, 95.9560]).bindPopup('Irrawaddy Dolphin<br> <b>Endangered</b><p class="graytext">Irrawaddy dolphins are found in coastal areas in South and Southeast Asia, and in three rivers: the Ayeyarwady (Myanmar), the Mahakam (Indonesian Borneo) and the Mekong.</p>').addTo(map);
+	var marker = L.marker([-1.4292, 29.5483]).bindPopup('Mountain Gorilla<br> <b>Endangered</b><p class="graytext">As their name implies, mountain gorillas live in forests high in the mountains, at elevations of 8,000 to 13,000 feet. They have thicker fur, and more of it, compared to other great apes. The fur helps them to survive in a habitat where temperatures often drop below freezing.</p>').addTo(map);
+	var marker = L.marker([40.96301, -70.39637]).bindPopup('North Atlantic Right Whale<br> <b>Endangered</b><p class="graytext">The North Atlantic right whale can easily be identified by the white calluses on its head, which are very noticeable against the whale’s dark gray body. It has a broad back without a dorsal fin and a long arching mouth that begins above the eye.</p>').addTo(map);
+	var marker = L.marker([28.5983, 83.9311]).bindPopup('Red Panda<br> <b>Endangered</b><p class="graytext">The red panda is slightly larger than a domestic cat with a bear-like body and thick russet fur. The belly and limbs are black, and there are white markings on the side of the head and above its small eyes. Red pandas are very skillful and acrobatic animals that predominantly stay in trees</p>').addTo(map);
+	var marker = L.marker([36.2048, 138.2529]).bindPopup('Sea Lions<br> <b>Endangered</b><p class="graytext">Sea lions haul out in large colonies on rocks and sandy shores on the Islands. They move into the water to feed and cool off as needed.</p>').addTo(map);
+	var marker = L.marker([23.4346, -35.0]).bindPopup('Sea Turtle<br> <b>Endangered</b><p class="graytext">Seven different species of sea (or marine) turtles grace our ocean waters, from the shallow seagrass beds of the Indian Ocean, to the colorful reefs of the Coral Triangle and the sandy beaches of the Eastern Pacific</p>').addTo(map);
+	var marker = L.marker([70.4720, 8.4689]).bindPopup('Sei Whale<br> <b>Endangered</b><p class="graytext">The sei whale is one of the fastest whales, reaching speeds of up to 30 miles per hour. Sei whales inhabit all oceans and adjoining seas except in tropical and polar regions.</p>').addTo(map);
+	var marker = L.marker([7.8731, 80.7718]).bindPopup('Sri Lankan Elephant<br> <b>Endangered</b><p class="graytext">The Sri Lankan subspecies is the largest and also the darkest of the Asian elephants, with patches of depigmentation—areas with no skin color—on its ears, face, trunk and belly.</p>').addTo(map);
+	var marker = L.marker([62.0, 110]).bindPopup('Tiger<br> <b>Endangered</b><p class="graytext">The largest of all the Asian big cats, tigers rely primarily on sight and sound rather than smell for hunting. They typically hunt alone and stalk prey. A tiger can consume more than 80 pounds of meat at one time.</p>').addTo(map);
+	var marker = L.marker([3.7355, 3.7435]).bindPopup('Whale Shark<br> <b>Endangered</b><p class="graytext">Whale sharks (Rhincodon typus) are the largest shark, and indeed largest of any fishes alive today. They feed on plankton and travel large distances to find enough food to sustain their huge size, and to reproduce.</p>').addTo(map);
+	var marker = L.marker([38.00, -82.00]).bindPopup('Bigeye Tuna<br> <b>Vulnerable</b><p class="graytext">Bigeye tuna are generally the size of yellowfin, and smaller than bluefin. They are long and streamlined, have dark metallic blue on their backs and upper sides, and are nearly white on their lower sides and belly. They can live as long as 15 years.</p>').addTo(map);
+	var marker = L.marker([-7.0446, -70.5929]).bindPopup('Black Spider Monkey<br> <b>Vulnerable</b><p class="graytext">The black spider monkey—also known as the Guiana or red-faced spider monkey—is found in eastern South America in areas north of the Amazon River. </p>').addTo(map);
+	var marker = L.marker([-25.7834, 113.2988]).bindPopup('Dugong<br> <b>Vulnerable</b><p class="graytext">Dugongs are cousins of manatees and share a similar plump appearance, but have a dolphin fluke-like tail. And unlike manatees, which use freshwater areas, the dugong is strictly a marine mammal.</p>').addTo(map);
+	var marker = L.marker([29.439325, 106.887703]).bindPopup('Giant Panda<br> <b>Vulnerable</b><p class="graytext">Pandas live mainly in temperate forests high in the mountains of southwest China, where they subsist almost entirely on bamboo. They must eat around 26 to 84 pounds of it every day.</p>').addTo(map);
+	var marker = L.marker([-0.9538, -90.9656]).bindPopup('Giant Tortoise<br> <b>Vulnerable</b><p class="graytext">There are many subspecies of giant tortoises that are found on different islands and have different appearances. Those that live on the larger islands where there is more rain have “dome” shaped shells, while those that live in drier conditions are smaller tortoises and have a “saddleback” shell.</p>').addTo(map);
+	var marker = L.marker([43.5804, -126.2313]).bindPopup("Great White Shark<br> <b>Vulnerable</b><p class='graytext'>The great white shark is the world's largest known predatory fish. It has 300 teeth, yet does not chew its food. Sharks rip their prey into mouth-sized pieces which are swallowed whole.</p>").addTo(map);
+	var marker = L.marker([28.00, 84.00]).bindPopup('Greater One-Horned Rhino<br> <b>Vulnerable</b><p class="graytext">The greater one-horned rhino (or “Indian rhino”) is the largest of the rhino species. Once widespread across the entire northern part of the Indian sub-continent, rhino populations plummeted as they were hunted for sport or killed as agricultural pests. </p>').addTo(map);
+	var marker = L.marker([23.4821, 18.4272]).bindPopup('Hippopotamus<br> <b>Vulnerable</b><p class="graytext">The hippopotamus, also known as the “river horse,” lives along the rivers and lakes throughout sub-Saharan Africa. Weighing up to 8,000 pounds, the hippo is the heaviest land animal after the elephant.</p>').addTo(map);
+	var marker = L.marker([21.4691, -78.6569]).bindPopup('Loggerhead Turtle<br> <b>Vulnerable</b><p class="graytext">Loggerhead turtles are named for their large heads that support powerful jaw muscles, allowing them to crush hard-shelled prey like clams and sea urchins. They are less likely to be hunted for their meat or shell compared to other sea turtles.</p>').addTo(map);
+	var marker = L.marker([-0.9538, -90.9656]).bindPopup('Marine Iguana<br> <b>Vulnerable</b><p class="graytext">One of the main nesting zones for iguanas is located on a central tourist beach in the waterfront area of Puerto Villamil on Isabela Island.</p>').addTo(map);
+	var marker = L.marker([21.38, -28.5402]).bindPopup('Leatherback Turtle<br> <b>Vulnerable</b><p class="graytext">Leatherback turtles are named for their shell, which is leather-like rather than hard, like other turtles. They are the largest sea turtle species and also one of the most migratory, crossing both the Atlantic and Pacific Oceans.</p>').addTo(map);
+	var marker = L.marker([18.52385, 67.25446]).bindPopup('Olive Ridley Turtle<br> <b>Vulnerable</b><p class="graytext">The name for this sea turtle is tied to the color of its shell—an olive green hue. They are currently the most abundant of all sea turtles.</p>').addTo(map);
+	var marker = L.marker([76.2506, -100.1140]).bindPopup('Polar Bear<br> <b>Vulnerable</b><p class="graytext">Polar Bears are cute :)</p>').addTo(map);
+	var marker = L.marker([41.2044, 74.7661]).bindPopup('Snow Leopard<br> <b>Vulnerable</b><p class="graytext">The snow leopard’s powerful build allows it to scale great steep slopes with ease. Its hind legs give the snow leopard the ability to leap six times the length of its body. </p>').addTo(map);
+	var marker = L.marker([-66.57498, 38.26127]).bindPopup('Southern Rockhopper Penguin<br> <b>Vulnerable</b><p class="graytext">Much smaller in size than the emperor penguin, rockhopper penguins weigh less than 10 pounds. They were named for their distinctive hopping movements over the rocky hills and cliffs where they live and breed.</p>').addTo(map);
+	var marker = L.marker([-8.7832, 124.5085]).bindPopup('Albacore Tuna<br> <b>Near Threatened</b><p class="graytext">Albacore is one of the smaller tuna species, reaching sizes between skipjack and yellowfin. They are bullet-shaped with a dark blue back and lighter blue-gray sides and belly. </p>').addTo(map);
+	var marker = L.marker([65.2482, -60.4621]).bindPopup('Beluga<br> <b>Near Threatened</b><p class="graytext">Belugas are extremely sociable mammals that live, hunt and migrate together in pods, ranging from a few individuals to hundreds of whales.</p>').addTo(map);
+	var marker = L.marker([52.9399, -106.4509]).bindPopup('Greater Sage-Grouse<br> <b>Near Threatened</b><p class="graytext">Greater sage-grouse were once found across 13 western U.S. states and 3 Canadian provinces. Unfortunately, because of oil and gas development, conversion of land for agricultural use, climate change and human development, sage-grouse only inhabit half their historic range.</p>').addTo(map);
+	var marker = L.marker([-2.163106, -55.126648]).bindPopup('Jaguar<br> <b>Near Threatened</b><p class="graytext">Jaguars are strong swimmers and climbers and require large areas of tropical rain forest and stretches of riverbank to survive.</p>').addTo(map);
+	var marker = L.marker([37.00, 97.00]).bindPopup('Mountain Plover<br> <b>Near Threatened</b><p class="graytext">Mountain plovers are one of only 12 grassland birds endemic to the western Great Plains. They nest across the western Great Plains and Rocky Mountain states, from the Canadian border to northern Mexico, and winter in California, southern Arizona, Texas and Mexico.</p>').addTo(map);
+	var marker = L.marker([44.4280, -110.5885]).bindPopup('Plains Bison<br> <b>Near Threatened</b><p class="graytext">Symbols of strength and determination, bison are Ice Age survivors. Clearing away snow and brush with their massive heads, they weigh up to 2,000 pounds and can run up to 40 miles per hour.</p>').addTo(map);
+	var marker = L.marker([0.0255, 36.9572]).bindPopup('White Rhino<br> <b>Near Threatened</b><p class="graytext">White rhinos are the second-largest land mammal and their name comes from the Afrikaan’s, a West Germanic language, word “weit” which means wide and refers to the animal’s mouth.</p>').addTo(map);
+	var marker = L.marker([-0.7893, 113.9213]).bindPopup('Yellowfin Tuna<br> <b>Near Threatened</b><p class="graytext">Yellowfin tuna are torpedo-shaped with dark metallic blue backs, yellow sides, and a silver belly. They have very long anal and dorsal fins and finlets that are bright yellow. Yellowfin can live up to six or seven years. </p>').addTo(map);
 	
 	
   </script>
@@ -211,6 +314,7 @@
    }
 	</script>
     </div>
+	
   </div>
 </body>
 </html>
