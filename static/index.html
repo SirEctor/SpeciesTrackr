@@ -5,9 +5,10 @@
   <meta content="utf-8" http-equiv="encoding">
 
   <title>Species Trackr</title>
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
   <link rel="stylesheet" href="index.css"/>
-  <link rel="stylesheet" href="https://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css"/>
-  <script src="https://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css"/>
+  <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
   
   <style>
       #map {
@@ -217,7 +218,7 @@
   
   
   // load a tile layer
-  L.tileLayer('https://{s}.tile.osm.org/{z}/{x}/{y}.png',
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
     {
       attribution: '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors',
 	  noWrap: true,
